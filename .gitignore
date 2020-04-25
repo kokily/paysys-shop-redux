@@ -105,3 +105,6 @@ dist
 
 # Aligo API
 utils.ts
+
+# Admin
+isAdmin.ts

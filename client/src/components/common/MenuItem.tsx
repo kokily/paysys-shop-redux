@@ -37,6 +37,6 @@ const ItemBlock = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: ${oc.gray[0]};
+    background: ${oc.teal[1]};
   }
 `;

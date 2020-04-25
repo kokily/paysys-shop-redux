@@ -44,6 +44,7 @@ const Header: React.FC<HeaderProps> = ({ user, onLogout }) => {
                 <UserMenu onClick={toggleUserMenu} />
               </div>
               <Menu
+                user={user}
                 onClose={onOutsideClick}
                 onLogout={onLogout}
                 visible={userMenu}
