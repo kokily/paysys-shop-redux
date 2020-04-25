@@ -19,7 +19,7 @@ const Menu: React.FC<MenuProps> = ({ user, onClose, onLogout, visible }) => {
   const transition = useTransition(visible, null, {
     from: {
       opacity: 0,
-      transform: 'scale(0.8)',
+      transform: 'scale(0.5)',
     },
     enter: {
       opacity: 1,
@@ -27,10 +27,10 @@ const Menu: React.FC<MenuProps> = ({ user, onClose, onLogout, visible }) => {
     },
     leave: {
       opacity: 0,
-      transform: 'scale(0.8)',
+      transform: 'scale(0.5)',
     },
     config: {
-      tension: 350,
+      tension: 400,
       friction: 26,
     },
   });

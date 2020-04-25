@@ -12,6 +12,9 @@ import MenuDetailPage from './pages/menu/MenuDetailPage';
 import CartPage from './pages/cart/CartPage';
 import FrontListPage from './pages/front/FrontListPage';
 import FrontDetailPage from './pages/front/FrontDetailPage';
+import ItemListPage from './pages/items/ItemListPage';
+import ItemDetailPage from './pages/items/ItemDetailPage';
+import AddItemPage from './pages/items/AddItemPage';
 
 const App = () => {
   return (
@@ -31,6 +34,10 @@ const App = () => {
 
       <Route exact path="/front" component={FrontListPage} />
       <Route path="/front/:frontId" component={FrontDetailPage} />
+
+      <Route exact path="/items" component={ItemListPage} />
+      <Route path="/items/:itemId" component={ItemDetailPage} />
+      <Route path="/add" component={AddItemPage} />
     </>
   );
 };

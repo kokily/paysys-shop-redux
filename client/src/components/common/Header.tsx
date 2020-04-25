@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ user, onLogout }) => {
       <Layout>
         <Content>
           {user ? (
-            <Logo to="/">{user.username} 님</Logo>
+            <Logo to="/">{user.username.substring(1)} 님</Logo>
           ) : (
             <Logo to="/">전표시스템</Logo>
           )}

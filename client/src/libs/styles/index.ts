@@ -68,4 +68,8 @@ export const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: inherit;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
