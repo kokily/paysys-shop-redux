@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { media } from '../../libs/styles';
 
 interface TabProps {
@@ -13,13 +13,19 @@ const Taps: React.FC<TabProps> = ({ native }) => {
     <Container>
       <ul className="nav-list">
         <li className={`soldier ${native === 'soldier' ? 'selected' : ''}`}>
-          <Link to="/soldier">현역메뉴</Link>
+          <NavLink to="/soldier" activeClassName="active">
+            현역메뉴
+          </NavLink>
         </li>
         <li className={`reserve ${native === 'reserve' ? 'selected' : ''}`}>
-          <Link to="/reserve">예비역메뉴</Link>
+          <NavLink to="/reserve" activeClassName="active">
+            예비역메뉴
+          </NavLink>
         </li>
         <li className={`general ${native === 'general' ? 'selected' : ''}`}>
-          <Link to="/general">일반메뉴</Link>
+          <NavLink to="/general" activeClassName="active">
+            일반메뉴
+          </NavLink>
         </li>
       </ul>
     </Container>
@@ -110,28 +116,46 @@ const Container = styled.div`
   }
 
   .soldier:hover {
-    color: ${oc.cyan[6]};
+    color: ${oc.cyan[5]};
+  }
+
+  .soldier a {
+    &.active {
+      color: ${oc.cyan[5]};
+    }
   }
 
   .reserve:after,
   .reserve:before,
   .reserve a:after,
   .reserve a:before {
-    background-color: ${oc.teal[6]};
+    background-color: ${oc.lime[5]};
   }
 
   .reserve:hover {
-    color: ${oc.teal[6]};
+    color: ${oc.lime[4]};
+  }
+
+  .reserve a {
+    &.active {
+      color: ${oc.lime[4]};
+    }
   }
 
   .general:after,
   .general:before,
   .general a:after,
   .general a:before {
-    background-color: ${oc.red[6]};
+    background-color: ${oc.orange[4]};
   }
 
   .general:hover {
-    color: ${oc.red[6]};
+    color: ${oc.orange[3]};
+  }
+
+  .general a {
+    &.active {
+      color: ${oc.orange[3]};
+    }
   }
 `;

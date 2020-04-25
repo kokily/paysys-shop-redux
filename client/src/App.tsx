@@ -7,6 +7,8 @@ import RegisterPage from './pages/RegisterPage';
 import SoldierPage from './pages/home/SoldierPage';
 import ReservePage from './pages/home/ReservePage';
 import GeneralPage from './pages/home/GeneralPage';
+import MenuListPage from './pages/menu/MenuListPage';
+import MenuDetailPage from './pages/menu/MenuDetailPage';
 
 const App = () => {
   return (
@@ -18,6 +20,9 @@ const App = () => {
       <Route path="/soldier" component={SoldierPage} />
       <Route path="/reserve" component={ReservePage} />
       <Route path="/general" component={GeneralPage} />
+
+      <Route exact path="/menu" component={MenuListPage} />
+      <Route path="/menu/:menuId" component={MenuDetailPage} />
     </>
   );
 };
