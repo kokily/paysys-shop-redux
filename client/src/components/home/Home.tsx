@@ -88,7 +88,7 @@ const MenuItem = styled.div<ItemColor>`
   ${(props) =>
     props.reserve &&
     css`
-      background: ${oc.lime[6]};
+      background: ${oc.lime[7]};
     `}
   ${(props) =>
     props.general &&

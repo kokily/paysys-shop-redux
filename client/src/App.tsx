@@ -15,6 +15,11 @@ import FrontDetailPage from './pages/front/FrontDetailPage';
 import ItemListPage from './pages/items/ItemListPage';
 import ItemDetailPage from './pages/items/ItemDetailPage';
 import AddItemPage from './pages/items/AddItemPage';
+import ExpensePage from './pages/expense/ExpensePage';
+import InfoPage from './pages/expense/InfoPage';
+import RentalPage from './pages/expense/RentalPage';
+import CompanyPage from './pages/expense/CompanyPage';
+import BouquetPage from './pages/expense/BouquetPage';
 
 const App = () => {
   return (
@@ -38,6 +43,12 @@ const App = () => {
       <Route exact path="/items" component={ItemListPage} />
       <Route path="/items/:itemId" component={ItemDetailPage} />
       <Route path="/add" component={AddItemPage} />
+
+      <Route exact path="/expense" component={ExpensePage} />
+      <Route path="/expense/info" component={InfoPage} />
+      <Route path="/expense/rental" component={RentalPage} />
+      <Route path="/expense/company" component={CompanyPage} />
+      <Route path="/expense/bouquet" component={BouquetPage} />
     </>
   );
 };
