@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import logger from 'koa-logger';
 import bodyParser from 'koa-bodyparser';
 import api from './api';
+import jwt_middleware from './libs/token';
 
 const app = new Koa();
 const router = new Router();
@@ -27,6 +28,7 @@ router.use('/api', api.routes());
 
 app.use(logger());
 app.use(bodyParser());
+app.use(jwt_middleware);
 app.use(router.routes());
 app.use(router.allowedMethods());
 

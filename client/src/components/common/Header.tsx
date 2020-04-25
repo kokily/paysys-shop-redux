@@ -6,7 +6,6 @@ import { AuthResponse } from '../../libs/api/auth';
 import { shadow, media } from '../../libs/styles';
 import UserMenu from './UserMenu';
 import useToggle from '../../libs/hooks/useToggle';
-import HeaderButton from './HeaderButton';
 import Menu from './Menu';
 
 interface HeaderProps {
@@ -39,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ user, onLogout }) => {
 
           <Spacer />
 
-          {user ? (
+          {user && (
             <>
               <div ref={ref}>
                 <UserMenu onClick={toggleUserMenu} />
@@ -50,9 +49,6 @@ const Header: React.FC<HeaderProps> = ({ user, onLogout }) => {
                 visible={userMenu}
               />
             </>
-          ) : (
-            // 임시 -> 사용자 없을 시 자동으로 / 경로로 이동(로그인)
-            <HeaderButton to="/">로그인</HeaderButton>
           )}
         </Content>
       </Layout>

@@ -58,8 +58,6 @@ export const transitions = {
 };
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Rajdhani:700');
-
   body {
     margin: 0;
     padding: 0;

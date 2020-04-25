@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../libs/styles';
+import HeaderContainer from '../../containers/common/HeaderContainer';
 
 interface PageTemplateProps {}
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
-  return <Container>{children}</Container>;
+  return (
+    <>
+      <HeaderContainer />
+      <Container>{children}</Container>
+    </>
+  );
 };
 
 export default PageTemplate;

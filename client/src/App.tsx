@@ -1,17 +1,23 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import HeaderContainer from './containers/common/HeaderContainer';
 import { GlobalStyle } from './libs/styles';
 
-import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import SoldierPage from './pages/home/SoldierPage';
+import ReservePage from './pages/home/ReservePage';
+import GeneralPage from './pages/home/GeneralPage';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <HeaderContainer />
 
-      <Route exact path="/" component={HomePage} />
+      <Route exact path="/" component={LoginPage} />
+      <Route path="/register" component={RegisterPage} />
+      <Route path="/soldier" component={SoldierPage} />
+      <Route path="/reserve" component={ReservePage} />
+      <Route path="/general" component={GeneralPage} />
     </>
   );
 };

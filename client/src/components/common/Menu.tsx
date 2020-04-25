@@ -16,7 +16,7 @@ const Menu: React.FC<MenuProps> = ({ onClose, onLogout, visible }) => {
     <OutsideClickHandler onOutsideClick={onClose}>
       <MenuContainer onClick={onClose}>
         <div className="menu-wrapper">
-          <MenuItem to={'/input'}>전표입력</MenuItem>
+          <MenuItem to={'/soldier'}>전표입력</MenuItem>
           <MenuItem to={'/cart'}>전표확인</MenuItem>
           <MenuItem to={'/front'}>프런트</MenuItem>
 
