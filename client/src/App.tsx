@@ -9,6 +9,7 @@ import ReservePage from './pages/home/ReservePage';
 import GeneralPage from './pages/home/GeneralPage';
 import MenuListPage from './pages/menu/MenuListPage';
 import MenuDetailPage from './pages/menu/MenuDetailPage';
+import CartPage from './pages/cart/CartPage';
 
 const App = () => {
   return (
@@ -23,6 +24,8 @@ const App = () => {
 
       <Route exact path="/menu" component={MenuListPage} />
       <Route path="/menu/:menuId" component={MenuDetailPage} />
+
+      <Route path="/cart" component={CartPage} />
     </>
   );
 };
