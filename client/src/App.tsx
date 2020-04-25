@@ -20,6 +20,10 @@ import InfoPage from './pages/expense/InfoPage';
 import RentalPage from './pages/expense/RentalPage';
 import CompanyPage from './pages/expense/CompanyPage';
 import BouquetPage from './pages/expense/BouquetPage';
+import PlayPage from './pages/expense/PlayPage';
+import MealPage from './pages/expense/MealPage';
+import SplitPage from './pages/expense/SplitPage';
+import AllPage from './pages/expense/AllPage';
 
 const App = () => {
   return (
@@ -49,6 +53,10 @@ const App = () => {
       <Route path="/expense/rental" component={RentalPage} />
       <Route path="/expense/company" component={CompanyPage} />
       <Route path="/expense/bouquet" component={BouquetPage} />
+      <Route path="/expense/play" component={PlayPage} />
+      <Route path="/expense/meal" component={MealPage} />
+      <Route path="/expense/split" component={SplitPage} />
+      <Route path="/expense/all" component={AllPage} />
     </>
   );
 };

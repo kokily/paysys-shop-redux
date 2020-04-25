@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 import { Link } from 'react-router-dom';
-import { shadow, media } from '../../libs/styles';
+import { media } from '../../libs/styles';
 import { ItemResponse } from '../../libs/api/items';
 import Search from '../common/Search';
 import PaginationContainer from '../../containers/items/PaginationContainer';
