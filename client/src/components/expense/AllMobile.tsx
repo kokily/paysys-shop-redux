@@ -56,6 +56,7 @@ interface AllProps {
   husbandMeal: number;
   brideMeal: number;
   totalMeals: number;
+  weddingAt: string;
   onSubmit: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -112,6 +113,7 @@ const AllMobile: React.FC<AllProps> = ({
   husbandMeal,
   brideMeal,
   totalMeals,
+  weddingAt,
   onSubmit,
 }) => {
   return (
@@ -122,6 +124,8 @@ const AllMobile: React.FC<AllProps> = ({
         <h3 className="name">
           신랑 : <strong>{husband} ♡</strong> 신부: <strong>{bride}</strong>
         </h3>
+
+        <h4>웨딩일자: {weddingAt}</h4>
 
         <hr style={{ width: '90%' }} />
 

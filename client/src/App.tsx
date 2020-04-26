@@ -23,7 +23,10 @@ import BouquetPage from './pages/expense/BouquetPage';
 import PlayPage from './pages/expense/PlayPage';
 import MealPage from './pages/expense/MealPage';
 import SplitPage from './pages/expense/SplitPage';
+import WeddingDatePage from './pages/expense/WeddingDatePage';
 import AllPage from './pages/expense/AllPage';
+import WeddingListPage from './pages/weddings/WeddingListPage';
+import WeddingDetailPage from './pages/weddings/WeddingDetailPage';
 
 const App = () => {
   return (
@@ -56,7 +59,11 @@ const App = () => {
       <Route path="/expense/play" component={PlayPage} />
       <Route path="/expense/meal" component={MealPage} />
       <Route path="/expense/split" component={SplitPage} />
+      <Route path="/expense/weddingdate" component={WeddingDatePage} />
       <Route path="/expense/all" component={AllPage} />
+
+      <Route exact path="/wedding" component={WeddingListPage} />
+      <Route path="/wedding/:weddingId" component={WeddingDetailPage} />
     </>
   );
 };

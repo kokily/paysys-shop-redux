@@ -63,6 +63,7 @@ export interface WeddingType extends Document {
   };
   createdAt: string;
   updatedAt?: string;
+  weddingAt: string;
 }
 
 const weddingSchema = new mongoose.Schema({
@@ -127,6 +128,7 @@ const weddingSchema = new mongoose.Schema({
     default: Date.now,
   },
   updatedAt: Date,
+  weddingAt: Date,
 });
 
 export default mongoose.model<WeddingType>('Wedding', weddingSchema);

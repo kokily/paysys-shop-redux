@@ -168,7 +168,7 @@ const SplitContainer = () => {
     }
 
     setCookie('__PAYSYS_WEDDING_CART__', JSON.stringify(newList), 10);
-    history.push('/expense/all');
+    history.push('/expense/weddingdate');
   };
 
   const onBack = () => {

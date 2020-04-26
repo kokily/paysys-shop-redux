@@ -75,6 +75,7 @@ type ExpenseState = {
   husbandReserve: number;
   brideReserve: number;
   meal: string;
+  weddingAt: string;
   expense: ExpenseResponse | null;
   error: Error | null;
   originalExpenseId: string | null;
@@ -185,6 +186,7 @@ const initialState: ExpenseState = {
   husbandReserve: 0,
   brideReserve: 0,
   meal: '',
+  weddingAt: '',
   expense: null,
   error: null,
   originalExpenseId: null,
@@ -251,6 +253,7 @@ const expense = createReducer<ExpenseState, ExpenseAction>(initialState, {
     husbandReserve: expense.husbandReserve,
     brideReserve: expense.brideReserve,
     meal: expense.meal,
+    weddingAt: expense.weddingAt,
     originalExpenseId: expense._id,
   }),
   [ADD_EXPENSE_SUCCESS]: (state, { payload: expense }) => ({

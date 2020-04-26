@@ -67,6 +67,7 @@ export interface WeddingResponse {
   };
   createdAt: string;
   updatedAt?: string;
+  weddingAt: string;
 }
 
 // 웨딩 빌지 리스트 (GET) /api/weddings

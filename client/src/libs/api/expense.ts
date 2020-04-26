@@ -59,6 +59,7 @@ export type ExpenseType = {
   };
   createdAt?: string;
   updatedAt?: string;
+  weddingAt: string;
 };
 
 export type ExpenseUpdate = {
@@ -123,6 +124,7 @@ export const addExpense = ({
   husbandReserve,
   brideReserve,
   meal,
+  weddingAt,
 }: ExpenseType) =>
   client.post<ExpenseResponse>('/api/weddings', {
     husband,
@@ -177,6 +179,7 @@ export const addExpense = ({
     husbandReserve,
     brideReserve,
     meal,
+    weddingAt,
   });
 
 // 웨딩 빌지 수정 (PATCH) /api/weddings/:id
@@ -234,6 +237,7 @@ export const updateExpense = ({
   husbandReserve,
   brideReserve,
   meal,
+  weddingAt,
 }: ExpenseUpdate) =>
   client.patch<ExpenseResponse>(`/api/weddings/${id}`, {
     husband,
@@ -288,4 +292,5 @@ export const updateExpense = ({
     husbandReserve,
     brideReserve,
     meal,
+    weddingAt,
   });

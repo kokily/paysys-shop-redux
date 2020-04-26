@@ -58,6 +58,7 @@ export const addWedding = async (ctx: Context) => {
     husbandReserve: Joi.number().required(),
     brideReserve: Joi.number().required(),
     meal: Joi.string().required(),
+    weddingAt: Joi.date().required(),
   });
 
   const result: ValidationResult<string> = Joi.validate(ctx.request.body, data);
@@ -188,6 +189,7 @@ export const updateWedding = async (ctx: Context) => {
     husbandReserve: Joi.number(),
     brideReserve: Joi.number(),
     meal: Joi.string(),
+    weddingAt: Joi.date(),
   });
 
   const result: ValidationResult<string> = Joi.validate(ctx.request.body, data);
