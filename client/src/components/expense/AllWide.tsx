@@ -124,7 +124,7 @@ const AllWide: React.FC<AllProps> = ({
         신랑: <strong>{husband} ♡</strong> 신부: <strong>{bride}</strong>
       </h3>
 
-      <h4>웨딩일자: {weddingAt}</h4>
+      <h4>웨딩일자: {new Date(weddingAt).toLocaleDateString()}</h4>
 
       <hr style={{ width: '90%' }} />
 

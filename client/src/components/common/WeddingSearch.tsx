@@ -66,6 +66,7 @@ const SearchBlock = styled.div`
     width: 100px;
     height: 40px;
     float: left;
+    border-radius: 3px;
   }
   input {
     width: 150px;
