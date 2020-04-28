@@ -9,6 +9,10 @@ import AuthTemplate from './components/auth/AuthTemplate';
 import PageTemplate from './components/common/PageTemplate';
 import ExpenseTemplate from './components/common/ExpenseTemplate';
 
+import SoldierPage from './pages/home/SoldierPage';
+import ReservePage from './pages/home/ReservePage';
+import GeneralPage from './pages/home/GeneralPage';
+
 const AuthConfig = {
   fallback: <AuthTemplate />,
 };
@@ -20,18 +24,6 @@ const PageConfig = {
   fallback: <PageTemplate />,
 };
 
-const SoldierPage = loadable(
-  () => import('./pages/home/SoldierPage'),
-  PageConfig
-);
-const ReservePage = loadable(
-  () => import('./pages/home/ReservePage'),
-  PageConfig
-);
-const GeneralPage = loadable(
-  () => import('./pages/home/GeneralPage'),
-  PageConfig
-);
 const MenuListPage = loadable(
   () => import('./pages/menu/MenuListPage'),
   PageConfig

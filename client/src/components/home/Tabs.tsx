@@ -115,10 +115,6 @@ const Container = styled.div`
     background-color: ${oc.cyan[6]};
   }
 
-  .soldier:hover {
-    color: ${oc.cyan[5]};
-  }
-
   .soldier a {
     &.active {
       color: ${oc.cyan[5]};
@@ -132,10 +128,6 @@ const Container = styled.div`
     background-color: ${oc.lime[5]};
   }
 
-  .reserve:hover {
-    color: ${oc.lime[4]};
-  }
-
   .reserve a {
     &.active {
       color: ${oc.lime[4]};
@@ -147,10 +139,6 @@ const Container = styled.div`
   .general a:after,
   .general a:before {
     background-color: ${oc.orange[4]};
-  }
-
-  .general:hover {
-    color: ${oc.orange[3]};
   }
 
   .general a {
