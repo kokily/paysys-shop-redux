@@ -1,37 +1,136 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import loadable from '@loadable/component';
 import { GlobalStyle } from './libs/styles';
 
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import SoldierPage from './pages/home/SoldierPage';
-import ReservePage from './pages/home/ReservePage';
-import GeneralPage from './pages/home/GeneralPage';
-import MenuListPage from './pages/menu/MenuListPage';
-import MenuDetailPage from './pages/menu/MenuDetailPage';
-import CartPage from './pages/cart/CartPage';
-import FrontListPage from './pages/front/FrontListPage';
-import FrontDetailPage from './pages/front/FrontDetailPage';
-import ItemListPage from './pages/items/ItemListPage';
-import ItemDetailPage from './pages/items/ItemDetailPage';
-import AddItemPage from './pages/items/AddItemPage';
-import ExpensePage from './pages/expense/ExpensePage';
-import InfoPage from './pages/expense/InfoPage';
-import RentalPage from './pages/expense/RentalPage';
-import CompanyPage from './pages/expense/CompanyPage';
-import BouquetPage from './pages/expense/BouquetPage';
-import PlayPage from './pages/expense/PlayPage';
-import MealPage from './pages/expense/MealPage';
-import SplitPage from './pages/expense/SplitPage';
-import WeddingDatePage from './pages/expense/WeddingDatePage';
-import AllPage from './pages/expense/AllPage';
-import WeddingListPage from './pages/weddings/WeddingListPage';
-import WeddingDetailPage from './pages/weddings/WeddingDetailPage';
+// Templates
+import AuthTemplate from './components/auth/AuthTemplate';
+import PageTemplate from './components/common/PageTemplate';
+import ExpenseTemplate from './components/common/ExpenseTemplate';
+
+const AuthConfig = {
+  fallback: <AuthTemplate />,
+};
+
+const LoginPage = loadable(() => import('./pages/LoginPage'), AuthConfig);
+const RegisterPage = loadable(() => import('./pages/RegisterPage'), AuthConfig);
+
+const PageConfig = {
+  fallback: <PageTemplate />,
+};
+
+const SoldierPage = loadable(
+  () => import('./pages/home/SoldierPage'),
+  PageConfig
+);
+const ReservePage = loadable(
+  () => import('./pages/home/ReservePage'),
+  PageConfig
+);
+const GeneralPage = loadable(
+  () => import('./pages/home/GeneralPage'),
+  PageConfig
+);
+const MenuListPage = loadable(
+  () => import('./pages/menu/MenuListPage'),
+  PageConfig
+);
+const MenuDetailPage = loadable(
+  () => import('./pages/menu/MenuDetailPage'),
+  PageConfig
+);
+const CartPage = loadable(() => import('./pages/cart/CartPage'), PageConfig);
+const FrontListPage = loadable(
+  () => import('./pages/front/FrontListPage'),
+  PageConfig
+);
+const FrontDetailPage = loadable(
+  () => import('./pages/front/FrontDetailPage'),
+  PageConfig
+);
+const ListUsersPage = loadable(
+  () => import('./pages/users/ListUsersPage'),
+  PageConfig
+);
+const ReadUserPage = loadable(
+  () => import('./pages/users/ReadUserPage'),
+  PageConfig
+);
+
+const ExpenseConfig = {
+  fallback: <ExpenseTemplate />,
+};
+
+const ItemListPage = loadable(
+  () => import('./pages/items/ItemListPage'),
+  ExpenseConfig
+);
+const ItemDetailPage = loadable(
+  () => import('./pages/items/ItemDetailPage'),
+  ExpenseConfig
+);
+const AddItemPage = loadable(
+  () => import('./pages/items/AddItemPage'),
+  ExpenseConfig
+);
+const ExpensePage = loadable(
+  () => import('./pages/expense/ExpensePage'),
+  ExpenseConfig
+);
+const InfoPage = loadable(
+  () => import('./pages/expense/InfoPage'),
+  ExpenseConfig
+);
+const RentalPage = loadable(
+  () => import('./pages/expense/RentalPage'),
+  ExpenseConfig
+);
+const CompanyPage = loadable(
+  () => import('./pages/expense/CompanyPage'),
+  ExpenseConfig
+);
+const BouquetPage = loadable(
+  () => import('./pages/expense/BouquetPage'),
+  ExpenseConfig
+);
+const PlayPage = loadable(
+  () => import('./pages/expense/PlayPage'),
+  ExpenseConfig
+);
+const MealPage = loadable(
+  () => import('./pages/expense/MealPage'),
+  ExpenseConfig
+);
+const SplitPage = loadable(
+  () => import('./pages/expense/SplitPage'),
+  ExpenseConfig
+);
+const WeddingDatePage = loadable(
+  () => import('./pages/expense/WeddingDatePage'),
+  ExpenseConfig
+);
+const AllPage = loadable(
+  () => import('./pages/expense/AllPage'),
+  ExpenseConfig
+);
+const WeddingListPage = loadable(
+  () => import('./pages/weddings/WeddingListPage'),
+  ExpenseConfig
+);
+const WeddingDetailPage = loadable(
+  () => import('./pages/weddings/WeddingDetailPage'),
+  ExpenseConfig
+);
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
+
+      <Helmet>
+        <title>행사전표시스템 - v2.1</title>
+      </Helmet>
 
       <Route exact path="/" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
@@ -64,6 +163,9 @@ const App = () => {
 
       <Route exact path="/wedding" component={WeddingListPage} />
       <Route path="/wedding/:weddingId" component={WeddingDetailPage} />
+
+      <Route exact path="/users" component={ListUsersPage} />
+      <Route path="/users/:userId" component={ReadUserPage} />
     </>
   );
 };

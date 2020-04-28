@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 interface MenuItemProps {
   to?: string;
+  red?: boolean;
   onClick?: () => void;
 }
 
@@ -29,7 +30,7 @@ const WrapperLink = styled(Link)`
   text-decoration: none;
 `;
 
-const ItemBlock = styled.div`
+const ItemBlock = styled.div<MenuItemProps>`
   padding: 0.75rem 1rem;
   font-weight: 500;
   line-height: 1.5;

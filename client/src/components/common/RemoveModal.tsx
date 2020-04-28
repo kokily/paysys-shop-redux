@@ -15,8 +15,8 @@ const RemoveModal: React.FC<RemoveModalProps> = ({
   return (
     <Modal
       visible={visible}
-      title="전표 삭제"
-      content="이 전표를 정말 삭제하시겠습니까?"
+      title="삭 제"
+      content="정말 삭제하시겠습니까?"
       onConfirm={onConfirm}
       onCancel={onCancel}
     />

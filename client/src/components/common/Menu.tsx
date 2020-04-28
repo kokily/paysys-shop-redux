@@ -54,6 +54,9 @@ const Menu: React.FC<MenuProps> = ({ user, onClose, onLogout, visible }) => {
                       <Split />
                       <MenuItem to={'/wedding'}>웨딩빌지</MenuItem>
                       <MenuItem to={'/items'}>품목리스트</MenuItem>
+
+                      <Split />
+                      <MenuItem to={'/users'}>사용자 목록</MenuItem>
                     </>
                   )}
 

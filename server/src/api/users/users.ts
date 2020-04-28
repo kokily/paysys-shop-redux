@@ -34,7 +34,7 @@ export const list = async (ctx: Context) => {
 
 // Get Profile (GET) /api/users/:id
 export const read = async (ctx: Context) => {
-  ctx.body = ctx.state.user;
+  ctx.body = ctx.state.userProfile;
 };
 
 // Remove User (DELETE) /api/users/:id
@@ -66,7 +66,7 @@ export const getById = async (ctx: Context, next: Next) => {
     return;
   }
 
-  ctx.state.user = user;
+  ctx.state.userProfile = user;
 
   return next();
 };

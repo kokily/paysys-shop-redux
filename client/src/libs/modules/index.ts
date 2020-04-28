@@ -10,6 +10,7 @@ import weddings, { weddingsSaga } from './weddings';
 import expense, { expenseSaga } from './expense';
 import items, { itemsSaga } from './items';
 import add, { addSaga } from './add';
+import users, { usersSaga } from './users';
 
 const rootReducer = combineReducers({
   loading,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   expense,
   items,
   add,
+  users,
 });
 
 export function* rootSaga() {
@@ -35,6 +37,7 @@ export function* rootSaga() {
     expenseSaga(),
     itemsSaga(),
     addSaga(),
+    usersSaga(),
   ]);
 }
 

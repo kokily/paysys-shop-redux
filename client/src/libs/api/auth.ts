@@ -3,6 +3,7 @@ import client from './client';
 export interface AuthResponse {
   _id: string;
   username: string;
+  createdAt: Date;
 }
 
 export interface UserType {
