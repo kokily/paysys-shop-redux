@@ -15,7 +15,8 @@
     "koa-router": "^8.0.8",
     "koa-send": "^5.0.0",
     "koa-static": "^5.0.0",
-    "mongoose": "^5.9.10"
+    "mongoose": "^5.9.10",
+    "mongoose-auto-increment": "^5.0.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",

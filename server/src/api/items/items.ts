@@ -121,7 +121,7 @@ export const getById = async (ctx: Context, next: Next) => {
   const { id } = ctx.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    ctx.status = 404;
+    ctx.status = 401;
     return;
   }
 
