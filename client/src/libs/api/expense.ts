@@ -59,7 +59,7 @@ export type ExpenseType = {
   };
   createdAt?: string;
   updatedAt?: string;
-  weddingAt: string;
+  weddingAt?: string;
 };
 
 export type ExpenseUpdate = {

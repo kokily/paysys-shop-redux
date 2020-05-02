@@ -114,6 +114,7 @@ const WeddingDetailPage = loadable(
   () => import('./pages/weddings/WeddingDetailPage'),
   ExpenseConfig
 );
+const EditPage = loadable(() => import('./pages/edit/EditPage'), ExpenseConfig);
 
 const App = () => {
   return (
@@ -152,6 +153,7 @@ const App = () => {
       <Route path="/expense/split" component={SplitPage} />
       <Route path="/expense/weddingdate" component={WeddingDatePage} />
       <Route path="/expense/all" component={AllPage} />
+      <Route path="/expense/edit" component={EditPage} />
 
       <Route exact path="/wedding" component={WeddingListPage} />
       <Route path="/wedding/:weddingId" component={WeddingDetailPage} />
