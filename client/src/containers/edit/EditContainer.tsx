@@ -212,7 +212,7 @@ const EditContainer = () => {
     );
     dispatch(
       changeField({
-        key: 'sumModerator',
+        key: 'sumOfficiate',
         value: husbandOfficiate + brideOfficiate,
       })
     );
