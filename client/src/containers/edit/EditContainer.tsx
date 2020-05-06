@@ -158,8 +158,7 @@ const EditContainer = () => {
     dispatch(
       changeField({
         key: 'sumRental',
-        // @ts-ignore
-        value: parseInt(husbandRental + brideRental),
+        value: husbandRental + brideRental,
       })
     );
     dispatch(
