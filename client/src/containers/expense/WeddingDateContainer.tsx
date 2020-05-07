@@ -1,11 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getCookie, setCookie } from '../../libs/cookie';
 import WeddingDate from '../../components/expense/WeddingDate';
 
+interface StateProps {
+  eventAt: string;
+}
+
+function reducer(state: StateProps, action: any) {
+  return {
+    ...state,
+    [action.name]: action.value,
+  };
+}
+
 const WeddingDateContainer = () => {
   const history = useHistory();
   const [startDate, setStartDate] = useState(new Date());
+  const [state, dispatch] = useReducer(reducer, {
+    eventAt: '',
+  });
+
+  const { eventAt } = state;
+
+  const onChangeTime = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch(e.target);
+  };
 
   const onChange = (date: Date) => {
     setStartDate(date);
@@ -14,12 +34,18 @@ const WeddingDateContainer = () => {
   const onSubmit = () => {
     let newList: any = {};
 
+    if (eventAt.includes('')) {
+      alert('빈 칸을 다 채우세요!');
+      return;
+    }
+
     if (getCookie('__PAYSYS_WEDDING_CART__')) {
       newList = JSON.parse(getCookie('__PAYSYS_WEDDING_CART__'));
     }
 
     newList['WeddingDate'] = {
       weddingAt: startDate,
+      eventAt,
     };
 
     setCookie('__PAYSYS_WEDDING_CART__', JSON.stringify(newList), 10);
@@ -51,6 +77,8 @@ const WeddingDateContainer = () => {
   return (
     <WeddingDate
       startDate={startDate}
+      eventAt={eventAt}
+      onChangeTime={onChangeTime}
       onChange={onChange}
       onSubmit={onSubmit}
       onBack={onBack}

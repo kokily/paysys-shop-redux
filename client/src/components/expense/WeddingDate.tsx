@@ -8,6 +8,8 @@ import MenuButton from '../common/MenuButton';
 
 interface WeddingDateProps {
   startDate: Date;
+  eventAt: string;
+  onChangeTime: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   onChange: (date: Date) => void;
   onSubmit: () => void;
   onBack: () => void;
@@ -16,6 +18,8 @@ interface WeddingDateProps {
 
 const WeddingDate: React.FC<WeddingDateProps> = ({
   startDate,
+  eventAt,
+  onChangeTime,
   onChange,
   onSubmit,
   onBack,
@@ -33,6 +37,15 @@ const WeddingDate: React.FC<WeddingDateProps> = ({
           onChange={onChange}
           dateFormat="MMMM dd, yyyy"
         />
+
+        <Select name="eventAt" value={eventAt} onChange={onChangeTime}>
+          <option value="11:30">11:30</option>
+          <option value="13:00">13:00</option>
+          <option value="14:30">14:30</option>
+          <option value="16:00">16:00</option>
+          <option value="17:30">17:30</option>
+          <option value="19:00">19:00</option>
+        </Select>
 
         <MenuButton onSubmit={onSubmit} onBack={onBack} onCancel={onCancel} />
       </Content>
@@ -86,4 +99,11 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const Select = styled.select`
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 4px;
 `;

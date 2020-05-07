@@ -56,7 +56,8 @@ const WeddingList: React.FC<WeddingListProps> = ({
                 <tr key={wedding._id}>
                   <td>
                     <strong onClick={() => onReadWedding(wedding._id)}>
-                      {new Date(wedding.weddingAt).toLocaleDateString()}
+                      {new Date(wedding.weddingAt).toLocaleDateString()}{' '}
+                      {wedding.eventAt && wedding.eventAt}
                     </strong>
                   </td>
                   <td>{wedding.husband}</td>

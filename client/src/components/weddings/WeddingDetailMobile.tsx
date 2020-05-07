@@ -62,7 +62,10 @@ const WeddingDetailMobile: React.FC<MobileProps> = ({
             <strong>{wedding.bride}</strong>
           </h3>
 
-          <h4>웨딩일자: {new Date(wedding.weddingAt).toLocaleDateString()}</h4>
+          <h4>
+            웨딩일자: {new Date(wedding.weddingAt).toLocaleDateString()}{' '}
+            {wedding.eventAt && wedding.eventAt}
+          </h4>
 
           <hr style={{ width: '90%' }} />
 
