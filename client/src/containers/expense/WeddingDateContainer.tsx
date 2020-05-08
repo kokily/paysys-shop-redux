@@ -18,7 +18,7 @@ const WeddingDateContainer = () => {
   const history = useHistory();
   const [startDate, setStartDate] = useState(new Date());
   const [state, dispatch] = useReducer(reducer, {
-    eventAt: '',
+    eventAt: '11:30',
   });
 
   const { eventAt } = state;
@@ -33,6 +33,11 @@ const WeddingDateContainer = () => {
 
   const onSubmit = () => {
     let newList: any = {};
+
+    if (eventAt === '') {
+      alert('시간을 선택하세요');
+      return;
+    }
 
     if (getCookie('__PAYSYS_WEDDING_CART__')) {
       newList = JSON.parse(getCookie('__PAYSYS_WEDDING_CART__'));

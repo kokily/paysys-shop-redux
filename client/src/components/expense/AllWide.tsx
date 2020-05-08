@@ -57,6 +57,7 @@ interface AllProps {
   brideMeal: number;
   totalMeals: number;
   weddingAt: string;
+  eventAt: string;
   onSubmit: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -114,6 +115,7 @@ const AllWide: React.FC<AllProps> = ({
   brideMeal,
   totalMeals,
   weddingAt,
+  eventAt,
   onSubmit,
 }) => {
   return (
@@ -124,7 +126,7 @@ const AllWide: React.FC<AllProps> = ({
         신랑: <strong>{husband} ♡</strong> 신부: <strong>{bride}</strong>
       </h3>
 
-      <h4>웨딩일자: {new Date(weddingAt).toLocaleDateString()}</h4>
+      <h4>웨딩일자: {new Date(weddingAt).toLocaleDateString()} {eventAt}</h4>
 
       <hr style={{ width: '90%' }} />
 

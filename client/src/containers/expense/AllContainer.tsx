@@ -65,6 +65,7 @@ const AllContainer = () => {
     brideMeal,
     totalMeals,
     weddingAt,
+    eventAt,
   } = useSelector(({ expense }: RootState) => ({
     husband: expense.husband,
     bride: expense.bride,
@@ -119,6 +120,7 @@ const AllContainer = () => {
     brideMeal: expense.brideMeal,
     totalMeals: expense.totalMeals,
     weddingAt: expense.weddingAt,
+    eventAt: expense.eventAt,
   }));
 
   const onSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -180,6 +182,7 @@ const AllContainer = () => {
           brideMeal,
           totalMeals,
           weddingAt,
+          eventAt,
         })
       );
 
@@ -426,6 +429,7 @@ const AllContainer = () => {
       changeField({ key: 'totalMeals', value: parseInt(newList.totalMeals) })
     );
     dispatch(changeField({ key: 'weddingAt', value: newList.weddingAt }));
+    dispatch(changeField({ key: 'eventAt', value: newList.eventAt }));
   }, [dispatch]);
 
   return (
@@ -485,6 +489,7 @@ const AllContainer = () => {
           brideMeal={brideMeal}
           totalMeals={totalMeals}
           weddingAt={weddingAt}
+          eventAt={eventAt}
           onSubmit={onSubmit}
         />
       </BrowserView>
@@ -544,6 +549,7 @@ const AllContainer = () => {
           brideMeal={brideMeal}
           totalMeals={totalMeals}
           weddingAt={weddingAt}
+          eventAt={eventAt}
           onSubmit={onSubmit}
         />
       </MobileView>

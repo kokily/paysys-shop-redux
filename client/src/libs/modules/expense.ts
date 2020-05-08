@@ -188,7 +188,7 @@ const initialState: ExpenseState = {
   brideReserve: 0,
   meal: '',
   weddingAt: '',
-  eventAt: '',
+  eventAt: '11:30',
   expense: null,
   error: null,
   originalExpenseId: null,
