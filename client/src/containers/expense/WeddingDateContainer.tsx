@@ -34,11 +34,6 @@ const WeddingDateContainer = () => {
   const onSubmit = () => {
     let newList: any = {};
 
-    if (eventAt.includes('')) {
-      alert('빈 칸을 다 채우세요!');
-      return;
-    }
-
     if (getCookie('__PAYSYS_WEDDING_CART__')) {
       newList = JSON.parse(getCookie('__PAYSYS_WEDDING_CART__'));
     }
