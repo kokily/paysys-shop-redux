@@ -18,7 +18,7 @@ const PaginationContainer = () => {
   if (!fronts || fronts.length === 0) return null;
   if (loading) return null;
 
-  const { page = 1, title } = qs.parse(location.search, {
+  const { page = 1, title, username } = qs.parse(location.search, {
     ignoreQueryPrefix: true,
   });
 
@@ -27,6 +27,7 @@ const PaginationContainer = () => {
       page={parseInt(page, 10)}
       lastPage={lastPage.toString()}
       title={title}
+      username={username}
     />
   );
 };

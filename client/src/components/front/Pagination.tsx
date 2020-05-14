@@ -6,26 +6,29 @@ import PageButton from '../common/PageButton';
 interface PaginationProps {
   page: number;
   title: string;
+  username: string;
   lastPage: string;
 }
 
 const queryLink = ({
   page,
   title,
+  username
 }: {
   page: number;
   title: string;
+  username: string;
 }): string => {
-  const query = qs.stringify({ page, title });
+  const query = qs.stringify({ page, title, username });
   return `/front?${query}`;
 };
 
-const Pagination: React.FC<PaginationProps> = ({ page, title, lastPage }) => {
+const Pagination: React.FC<PaginationProps> = ({ page, title, lastPage, username }) => {
   return (
     <Container>
       <PageButton
         disabled={page === 1}
-        to={page === 1 ? undefined : queryLink({ page: page - 1, title })}
+        to={page === 1 ? undefined : queryLink({ page: page - 1, title, username })}
       >
         이전 페이지
       </PageButton>
@@ -35,7 +38,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, title, lastPage }) => {
         to={
           page === parseInt(lastPage)
             ? undefined
-            : queryLink({ page: page + 1, title })
+            : queryLink({ page: page + 1, title, username })
         }
       >
         다음 페이지
