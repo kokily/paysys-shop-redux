@@ -48,7 +48,7 @@ export const listItems = async (ctx: Context) => {
 
   try {
     const items = await Item.find(query)
-      .sort({ num: 1 })
+      .sort({ _id: 1 })
       .limit(10)
       .skip((page - 1) * 10)
       .lean()

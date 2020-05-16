@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { initialize, changeField, addBill } from '../../libs/modules/bills';
 import { getCookie, setCookie } from '../../libs/cookie';
 import Cart from '../../components/cart/Cart';
@@ -65,6 +66,7 @@ const CartContainer = () => {
         dispatch(
           addBill({ title, hall, etc, total: totalAmount, list: newCartList })
         );
+        toast.success('전표 전송!');
         setCookie('__PAYSYS_CART__', '', 0);
         history.push('/front');
       }
