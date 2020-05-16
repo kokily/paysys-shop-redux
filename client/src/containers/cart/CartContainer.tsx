@@ -1,12 +1,13 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { initialize, changeField, addBill } from '../../libs/modules/bills';
 import { getCookie, setCookie } from '../../libs/cookie';
 import Cart from '../../components/cart/Cart';
 import { RootState } from '../../libs/modules';
 import { CartType } from '../../libs/api/bills';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 
 const CartContainer = () => {
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ const CartContainer = () => {
     e.preventDefault();
 
     if (!newCartList || newCartList.length === 0) {
-      alert('먼저 전표를 등록하세요!');
+      toast.error('먼저 전표를 등록하세요!');
       return;
     }
 
@@ -108,17 +109,20 @@ const CartContainer = () => {
   }, [list, totalAmount, dispatch]);
 
   return (
-    <Cart
-      title={title}
-      hall={hall}
-      etc={etc}
-      newList={newList}
-      onChangeField={onChangeField}
-      totalAmount={totalAmount}
-      onRemove={onRemove}
-      onRemoveAll={onRemoveAll}
-      onSubmit={onSubmit}
-    />
+    <>
+      <Cart
+        title={title}
+        hall={hall}
+        etc={etc}
+        newList={newList}
+        onChangeField={onChangeField}
+        totalAmount={totalAmount}
+        onRemove={onRemove}
+        onRemoveAll={onRemoveAll}
+        onSubmit={onSubmit}
+      />
+      <ToastContainer />
+    </>
   );
 };
 
