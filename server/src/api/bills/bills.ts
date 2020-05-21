@@ -156,6 +156,39 @@ export const addReserve = async (ctx: Context) => {
   }
 };
 
+// Remove Reserve (PATCH) /api/bills/:id
+export const removeReserve = async (ctx: Context) => {
+  const { id } = ctx.params;
+
+  try {
+    const bill = await Bill.findById(id);
+
+    if (!bill) {
+      ctx.status = 404;
+      return;
+    }
+
+    const { _id, title, hall, etc, total, list } = bill;
+    const newBill = new Bill({
+      _id,
+      title,
+      hall,
+      etc,
+      total,
+      list,
+      user: ctx.state.user,
+      updatedAt: Date.now(),
+    });
+
+    await Bill.findByIdAndRemove(id).exec();
+    await newBill.save();
+
+    ctx.body = newBill;
+  } catch (err) {
+    ctx.throw(500, err);
+  }
+};
+
 // Get by ID
 export const getById = async (ctx: Context, next: Next) => {
   const { id } = ctx.params;

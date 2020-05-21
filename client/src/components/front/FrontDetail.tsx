@@ -22,6 +22,7 @@ interface FrontDetailProps {
   onList: () => void;
   onRemove: () => void;
   onReserve: () => void;
+  onRemoveReserve: () => void;
 }
 
 const FrontDetail: React.FC<FrontDetailProps> = ({
@@ -32,6 +33,7 @@ const FrontDetail: React.FC<FrontDetailProps> = ({
   onList,
   onRemove,
   onReserve,
+  onRemoveReserve,
 }) => {
   const [modal, setModal] = useState(false);
 
@@ -144,7 +146,11 @@ const FrontDetail: React.FC<FrontDetailProps> = ({
                     </div>
                     <div className="total">
                       예약금 :{' '}
-                      <span style={{ color: 'red', fontSize: '1.5rem' }}>
+                      <span
+                        className="reserve"
+                        style={{ color: 'red', fontSize: '1.5rem' }}
+                        onClick={onRemoveReserve}
+                      >
                         {front.reserve
                           .toString()
                           .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -328,6 +334,15 @@ const TotalPane = styled.div`
 
   .total {
     margin-bottom: 0.75rem;
+    transition: 0.2s all;
+
+    .reserve {
+      cursor: pointer;
+
+      &:hover {
+        color: ${oc.red[3]}
+      }
+    }
   }
 `;
 

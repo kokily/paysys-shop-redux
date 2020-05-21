@@ -82,3 +82,7 @@ export const addReserve = ({
     list,
     reserve,
   });
+
+// 예약금 삭제 (PATCH) /api/bills/remove/:id
+export const removeReserve = (id: string) =>
+  client.patch<BillResponse>(`/api/bills/remove/${id}`);

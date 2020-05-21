@@ -6,6 +6,7 @@ const bills = new Router();
 
 bills.post('/', isLoggedIn, billsCtrl.addBill);
 bills.get('/', isLoggedIn, billsCtrl.listBill);
+bills.patch('/remove/:id', isAdminIn, billsCtrl.removeReserve);
 
 const bill = new Router();
 

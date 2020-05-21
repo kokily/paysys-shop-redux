@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { readFront, unloadFront } from '../../libs/modules/fronts';
 import { setOriginalBill } from '../../libs/modules/bills';
-import { removeBill } from '../../libs/api/bills';
+import { removeBill, removeReserve } from '../../libs/api/bills';
 import FrontDetail from '../../components/front/FrontDetail';
 import { RootState } from '../../libs/modules';
 
@@ -29,6 +29,20 @@ const FrontDetailContainer = () => {
       if (frontId) {
         await removeBill(frontId);
         history.push('/front');
+      }
+      return;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const onRemoveReserve = async () => {
+    try {
+      if (frontId) {
+        if (window.confirm('예약금을 삭제하시겠습니까?')) {
+          await removeReserve(frontId);
+          history.push('/front');
+        }
       }
       return;
     } catch (err) {
@@ -62,6 +76,7 @@ const FrontDetailContainer = () => {
       onList={onList}
       onRemove={onRemove}
       onReserve={onReserve}
+      onRemoveReserve={onRemoveReserve}
     />
   );
 };
