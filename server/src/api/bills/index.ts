@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 import * as billsCtrl from './bills';
-import { isLoggedIn } from '../../libs/utils';
+import { isLoggedIn, isAdminIn } from '../../libs/utils';
 
 const bills = new Router();
 
@@ -11,6 +11,7 @@ const bill = new Router();
 
 bill.get('/', isLoggedIn, billsCtrl.readBill);
 bill.delete('/', isLoggedIn, billsCtrl.ownBill, billsCtrl.removeBill);
+bill.patch('/', isAdminIn, billsCtrl.addReserve);
 
 bills.use('/:id', billsCtrl.getById, bill.routes());
 

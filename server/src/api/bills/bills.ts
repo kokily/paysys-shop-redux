@@ -98,7 +98,7 @@ export const readBill = async (ctx: Context) => {
   ctx.body = ctx.state.bill;
 };
 
-// 빌지 삭제 (GET) /api/bills/:id
+// 빌지 삭제 (DELETE) /api/bills/:id
 export const removeBill = async (ctx: Context) => {
   const { id } = ctx.params;
 
@@ -106,7 +106,54 @@ export const removeBill = async (ctx: Context) => {
     await Bill.findByIdAndRemove(id).exec();
 
     ctx.status = 204;
-  } catch (err) {}
+  } catch (err) {
+    ctx.throw(500, err);
+  }
+};
+
+// Add Reserve (Patch) /api/bills/:id
+export const addReserve = async (ctx: Context) => {
+  const { id } = ctx.params;
+
+  const data: ObjectSchema = Joi.object().keys({
+    title: Joi.string(),
+    hall: Joi.string(),
+    etc: Joi.string(),
+    total: Joi.number(),
+    list: Joi.array().items({
+      native: Joi.string(),
+      divide: Joi.string(),
+      name: Joi.string(),
+      unit: Joi.string(),
+      price: Joi.number(),
+      count: Joi.number(),
+      amount: Joi.number(),
+    }),
+    reserve: Joi.number(),
+  });
+
+  const result: ValidationResult<string> = Joi.validate(ctx.request.body, data);
+
+  if (result.error) {
+    ctx.status = 400;
+    console.log(result.error);
+    return;
+  }
+
+  const newBill: BillType = {
+    ...ctx.request.body,
+    updatedAt: Date.now(),
+  };
+
+  try {
+    const bill = await Bill.findByIdAndUpdate(id, newBill, {
+      new: true,
+    }).exec();
+
+    ctx.body = bill;
+  } catch (err) {
+    ctx.throw(500, err);
+  }
 };
 
 // Get by ID

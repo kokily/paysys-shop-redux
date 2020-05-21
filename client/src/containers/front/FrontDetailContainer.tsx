@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { readFront, unloadFront } from '../../libs/modules/fronts';
+import { setOriginalBill } from '../../libs/modules/bills';
 import { removeBill } from '../../libs/api/bills';
 import FrontDetail from '../../components/front/FrontDetail';
 import { RootState } from '../../libs/modules';
@@ -35,6 +36,13 @@ const FrontDetailContainer = () => {
     }
   };
 
+  const onReserve = () => {
+    if (front) {
+      dispatch(setOriginalBill(front));
+      history.push('/update');
+    }
+  };
+
   useEffect(() => {
     if (frontId) {
       dispatch(readFront(frontId));
@@ -53,6 +61,7 @@ const FrontDetailContainer = () => {
       user={user}
       onList={onList}
       onRemove={onRemove}
+      onReserve={onReserve}
     />
   );
 };

@@ -115,6 +115,10 @@ const WeddingDetailPage = loadable(
   ExpenseConfig
 );
 const EditPage = loadable(() => import('./pages/edit/EditPage'), ExpenseConfig);
+const UpdateReservePage = loadable(
+  () => import('./pages/front/UpdateReservePage'),
+  ExpenseConfig
+);
 
 const App = () => {
   return (
@@ -138,6 +142,7 @@ const App = () => {
 
       <Route exact path="/front" component={FrontListPage} />
       <Route path="/front/:frontId" component={FrontDetailPage} />
+      <Route path="/update" component={UpdateReservePage} />
 
       <Route exact path="/items" component={ItemListPage} />
       <Route path="/items/:itemId" component={ItemDetailPage} />

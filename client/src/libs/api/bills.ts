@@ -18,13 +18,18 @@ export interface CartType {
   amount: number;
 }
 
-export interface BillType {
+export type BillType = {
   title: string;
   hall: string;
   etc: string;
   total: number;
   list: CartType[];
-}
+  reserve?: number;
+};
+
+export type BillUpdate = {
+  id: string;
+} & BillType;
 
 export interface BillResponse {
   _id: string;
@@ -37,6 +42,7 @@ export interface BillResponse {
     _id: string;
     username: string;
   };
+  reserve?: number;
   createdAt: string;
 }
 
@@ -57,3 +63,22 @@ export const addBill = ({ title, hall, etc, total, list }: BillType) =>
 // 빌지 삭제 (GET) /api/bills/:id
 export const removeBill = (id: string) =>
   client.delete<void>(`/api/bills/${id}`);
+
+// 예약금 추가 (PATCH) /api/bills/:id
+export const addReserve = ({
+  id,
+  title,
+  hall,
+  etc,
+  total,
+  list,
+  reserve,
+}: BillUpdate) =>
+  client.patch<BillResponse>(`/api/bills/${id}`, {
+    title,
+    hall,
+    etc,
+    total,
+    list,
+    reserve,
+  });

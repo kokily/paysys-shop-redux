@@ -17,6 +17,7 @@ export interface BillSchemaType {
     _id: mongoose.Types.ObjectId;
     username: string;
   };
+  reserve: number;
 }
 
 export interface BillQueryType {
@@ -34,6 +35,7 @@ export interface BillType extends Document {
     _id: mongoose.Types.ObjectId;
     username: string;
   };
+  reserve?: number;
   createdAt?: string;
   updatedAt?: string;
 }
@@ -58,6 +60,7 @@ const billSchema = new mongoose.Schema({
     _id: mongoose.Types.ObjectId,
     username: String,
   },
+  reserve: Number,
   createdAt: {
     type: Date,
     default: Date.now,

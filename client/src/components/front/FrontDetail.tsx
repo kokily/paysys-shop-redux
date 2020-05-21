@@ -6,11 +6,12 @@ import RemoveModal from '../common/RemoveModal';
 import { media, shadow } from '../../libs/styles';
 import { BillResponse } from '../../libs/api/bills';
 import { AuthResponse } from '../../libs/api/auth';
-import { admin1 } from '../../libs/isAdmin';
+import { admin1, admin2, admin3 } from '../../libs/isAdmin';
 
 interface ButtonProps {
   remove?: boolean;
   menu?: boolean;
+  reserve?: boolean;
 }
 
 interface FrontDetailProps {
@@ -20,6 +21,7 @@ interface FrontDetailProps {
   user: AuthResponse | null;
   onList: () => void;
   onRemove: () => void;
+  onReserve: () => void;
 }
 
 const FrontDetail: React.FC<FrontDetailProps> = ({
@@ -29,6 +31,7 @@ const FrontDetail: React.FC<FrontDetailProps> = ({
   user,
   onList,
   onRemove,
+  onReserve,
 }) => {
   const [modal, setModal] = useState(false);
 
@@ -128,20 +131,54 @@ const FrontDetail: React.FC<FrontDetailProps> = ({
               <hr />
 
               <TotalPane>
-                <div className="total">
-                  결제금액 :{' '}
-                  <span style={{ color: 'red', fontSize: '2rem' }}>
-                    {front.total
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  </span>
-                  원
-                </div>
+                {front.reserve ? (
+                  <>
+                    <div className="total">
+                      총 금액 :{' '}
+                      <span style={{ color: 'gray', fontSize: '1.5rem' }}>
+                        {front.total
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                      </span>
+                      원
+                    </div>
+                    <div className="total">
+                      예약금 :{' '}
+                      <span style={{ color: 'red', fontSize: '1.5rem' }}>
+                        {front.reserve
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                      </span>
+                      원
+                    </div>
+                    <div className="total">
+                      결제금액 :{' '}
+                      <span style={{ color: 'blue', fontSize: '2rem' }}>
+                        {(front.total - front.reserve)
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                      </span>
+                      원
+                    </div>
+                  </>
+                ) : (
+                  <div className="total">
+                    결제금액 :{' '}
+                    <span style={{ color: 'blue', fontSize: '2rem' }}>
+                      {front.total
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                    </span>
+                  </div>
+                )}
               </TotalPane>
 
               <ButtonPane>
                 {user &&
-                  (user.username === admin1 || front.user._id === user._id) && (
+                  (user.username === admin1 ||
+                    user.username === admin2 ||
+                    user.username === admin3 ||
+                    front.user._id === user._id) && (
                     <Button remove onClick={onRemoveClick}>
                       삭제하기
                     </Button>
@@ -149,6 +186,15 @@ const FrontDetail: React.FC<FrontDetailProps> = ({
                 <Button menu onClick={onList}>
                   목록으로
                 </Button>
+                {user &&
+                  !front.reserve &&
+                  (user.username === admin1 ||
+                    user.username === admin2 ||
+                    user.username === admin3) && (
+                    <Button reserve onClick={onReserve}>
+                      + 예약금
+                    </Button>
+                  )}
               </ButtonPane>
             </Content>
           </WhiteBoard>
@@ -276,8 +322,12 @@ const TotalPane = styled.div`
   width: 100%;
   margin-top: 2rem;
   margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
   .total {
-    float: right;
+    margin-bottom: 0.75rem;
   }
 `;
 
@@ -315,6 +365,18 @@ const Button = styled.button<ButtonProps>`
       color: ${oc.indigo[6]};
       &:hover {
         background: ${oc.indigo[6]};
+        color: white;
+        ${shadow(1)};
+      }
+    `}
+  ${(props) =>
+    props.reserve &&
+    css`
+      border: 1px solid ${oc.yellow[6]};
+      background: white;
+      color: ${oc.yellow[6]};
+      &:hover {
+        background: ${oc.yellow[6]};
         color: white;
         ${shadow(1)};
       }
