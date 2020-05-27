@@ -1,6 +1,7 @@
 import Koa from 'koa';
 import Router from 'koa-router';
 import mongoose from 'mongoose';
+import helmet from 'koa-helmet';
 import logger from 'koa-logger';
 import bodyParser from 'koa-bodyparser';
 import api from './api';
@@ -26,6 +27,7 @@ if (MONGO_URI) {
 
 router.use('/api', api.routes());
 
+app.use(helmet());
 app.use(logger());
 app.use(bodyParser());
 app.use(jwt_middleware);
