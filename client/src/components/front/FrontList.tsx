@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import oc from 'open-color';
 import { Link } from 'react-router-dom';
@@ -26,7 +27,11 @@ const FrontList: React.FC<FrontListProps> = ({
   onSearch,
   onDetail,
 }) => {
-  if (error) return <Container>에러 발생!!</Container>;
+  const history = useHistory();
+
+  if (error) {
+    history.push('/');
+  }
 
   return (
     <Container>

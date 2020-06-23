@@ -79,7 +79,7 @@ export const listBill = async (ctx: Context) => {
 
   try {
     const bills = await Bill.find(query)
-      .sort({ _id: -1 })
+      .sort({ createdAt: -1 })
       .limit(10)
       .skip((page - 1) * 10)
       .lean()
