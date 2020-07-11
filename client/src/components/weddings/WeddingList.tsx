@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import oc from 'open-color';
 import { WeddingResponse } from '../../libs/api/weddings';
@@ -29,7 +29,11 @@ const WeddingList: React.FC<WeddingListProps> = ({
   onChangeDivide,
   onSearch,
 }) => {
-  if (error) return <Container>에러 발생!!</Container>;
+  const history = useHistory();
+
+  if (error) {
+    history.push('/');
+  }
 
   return (
     <Container>
