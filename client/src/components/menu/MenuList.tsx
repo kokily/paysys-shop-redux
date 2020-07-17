@@ -35,6 +35,7 @@ const MenuList: React.FC<MenuListProps> = ({
             {menu.map((item) => (
               <MenuItem
                 key={item._id}
+                className={`${item.native}`}
                 onClick={() => onMenu(item._id)}
                 style={{ cursor: 'pointer' }}
               >
@@ -72,7 +73,6 @@ const MenuPane = styled.div`
 `;
 
 const MenuItem = styled.div`
-  background: ${oc.indigo[8]};
   color: white;
   ${shadow(1)};
   font-size: 1.215rem;
@@ -84,6 +84,19 @@ const MenuItem = styled.div`
   overflow: hidden;
   width: 100%;
   height: 55px;
+
+  &.현역 {
+    background: ${oc.cyan[6]};
+  }
+
+  &.예비역 {
+    background: ${oc.lime[5]};
+  }
+
+  &.일반 {
+    background: ${oc.orange[4]};
+  }
+
   -webkit-filter: brightness(0.9);
   filter: brightness(0.9);
   &:hover {
