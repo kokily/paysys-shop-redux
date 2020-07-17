@@ -48,7 +48,7 @@ export const addBill = async (ctx: Context) => {
     ctx.request.body = {
       sender,
       receiver,
-      msg: `[${ctx.state.user.username}] 님이 [${title}] 전표를 전송하셨슴다. -[${hall}]`,
+      msg: `[${ctx.state.user.username}]님 [${hall}]에서 [${title}] 전표전송 https://dnkdream.com/front`,
     };
 
     aligoapi

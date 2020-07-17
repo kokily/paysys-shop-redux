@@ -15,7 +15,7 @@ const HeaderContainer = () => {
   };
 
   useEffect(() => {
-    if (!user) {
+    if (!user || !user._id) {
       history.push('/login');
     }
   }, [history, user]);
