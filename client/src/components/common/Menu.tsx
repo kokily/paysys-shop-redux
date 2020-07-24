@@ -5,7 +5,7 @@ import { useTransition, animated } from 'react-spring';
 import OutsideClickHandler from 'react-outside-click-handler';
 import MenuItem from './MenuItem';
 import { AuthResponse } from '../../libs/api/auth';
-import { admin1, admin2, admin3 } from '../../libs/isAdmin';
+import { admin1, admin2, admin3, admin4 } from '../../libs/isAdmin';
 import { shadow } from '../../libs/styles';
 
 interface MenuProps {
@@ -49,7 +49,8 @@ const Menu: React.FC<MenuProps> = ({ user, onClose, onLogout, visible }) => {
                 {user &&
                   (user.username === admin1 ||
                     user.username === admin2 ||
-                    user.username === admin3) && (
+                    user.username === admin3 ||
+                    user.username === admin4) && (
                     <>
                       <Split />
                       <MenuItem to={'/wedding'}>웨딩빌지</MenuItem>
