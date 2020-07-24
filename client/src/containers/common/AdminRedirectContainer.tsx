@@ -12,7 +12,7 @@ const AdminRedirectContainer = () => {
 
   useEffect(() => {
     if (!user) {
-      history.push('/login');
+      history.push('/');
     }
 
     if (
