@@ -29,6 +29,7 @@ type ExpenseState = {
   husbandRental: number;
   husbandCompany: number;
   husbandAdd: number;
+  husbandToday: number;
   husbandBouquet: number;
   husbandCeremony: number;
   husbandHanbok: number;
@@ -40,6 +41,7 @@ type ExpenseState = {
   brideRental: number;
   brideCompany: number;
   brideAdd: number;
+  brideToday: number;
   brideBouquet: number;
   brideCeremony: number;
   brideHanbok: number;
@@ -51,6 +53,7 @@ type ExpenseState = {
   sumRental: number;
   sumCompany: number;
   sumAdd: number;
+  sumToday: number;
   sumBouquet: number;
   sumCeremony: number;
   sumHanbok: number;
@@ -141,6 +144,7 @@ const initialState: ExpenseState = {
   husbandRental: 0,
   husbandCompany: 0,
   husbandAdd: 0,
+  husbandToday: 0,
   husbandBouquet: 0,
   husbandCeremony: 0,
   husbandHanbok: 0,
@@ -152,6 +156,7 @@ const initialState: ExpenseState = {
   brideRental: 0,
   brideCompany: 0,
   brideAdd: 0,
+  brideToday: 0,
   brideBouquet: 0,
   brideCeremony: 0,
   brideHanbok: 0,
@@ -163,6 +168,7 @@ const initialState: ExpenseState = {
   sumRental: 0,
   sumCompany: 0,
   sumAdd: 0,
+  sumToday: 0,
   sumBouquet: 0,
   sumCeremony: 0,
   sumHanbok: 0,
@@ -209,6 +215,7 @@ const expense = createReducer<ExpenseState, ExpenseAction>(initialState, {
     husbandRental: expense.husbandRental,
     husbandCompany: expense.husbandCompany,
     husbandAdd: expense.husbandAdd,
+    husbandToday: expense.husbandToday,
     husbandBouquet: expense.husbandBouquet,
     husbandCeremony: expense.husbandCeremony,
     husbandHanbok: expense.husbandHanbok,
@@ -220,6 +227,7 @@ const expense = createReducer<ExpenseState, ExpenseAction>(initialState, {
     brideRental: expense.brideRental,
     brideCompany: expense.brideCompany,
     brideAdd: expense.brideAdd,
+    brideToday: expense.brideToday,
     brideBouquet: expense.brideBouquet,
     brideCeremony: expense.brideCeremony,
     brideHanbok: expense.brideHanbok,
@@ -231,6 +239,7 @@ const expense = createReducer<ExpenseState, ExpenseAction>(initialState, {
     sumRental: expense.sumRental,
     sumCompany: expense.sumCompany,
     sumAdd: expense.sumAdd,
+    sumToday: expense.sumToday,
     sumBouquet: expense.sumBouquet,
     sumCeremony: expense.sumCeremony,
     sumHanbok: expense.sumHanbok,

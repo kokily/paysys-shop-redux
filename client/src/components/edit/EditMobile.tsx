@@ -16,6 +16,7 @@ interface EditWideProps {
   husbandRental: number;
   husbandCompany: number;
   husbandAdd: number;
+  husbandToday: number;
   husbandBouquet: number;
   husbandCeremony: number;
   husbandHanbok: number;
@@ -27,6 +28,7 @@ interface EditWideProps {
   brideRental: number;
   brideCompany: number;
   brideAdd: number;
+  brideToday: number;
   brideBouquet: number;
   brideCeremony: number;
   brideHanbok: number;
@@ -38,6 +40,7 @@ interface EditWideProps {
   sumRental: number;
   sumCompany: number;
   sumAdd: number;
+  sumToday: number;
   sumBouquet: number;
   sumCeremony: number;
   sumHanbok: number;
@@ -78,6 +81,7 @@ const EditMobile: React.FC<EditWideProps> = ({
   husbandRental,
   husbandCompany,
   husbandAdd,
+  husbandToday,
   husbandBouquet,
   husbandCeremony,
   husbandHanbok,
@@ -89,6 +93,7 @@ const EditMobile: React.FC<EditWideProps> = ({
   brideRental,
   brideCompany,
   brideAdd,
+  brideToday,
   brideBouquet,
   brideCeremony,
   brideHanbok,
@@ -100,6 +105,7 @@ const EditMobile: React.FC<EditWideProps> = ({
   sumRental,
   sumCompany,
   sumAdd,
+  sumToday,
   sumBouquet,
   sumCeremony,
   sumHanbok,
@@ -161,11 +167,8 @@ const EditMobile: React.FC<EditWideProps> = ({
               />
             </strong>
           </h3>
-
           웨딩일자: {new Date(weddingAt).toLocaleDateString()}
-
           <hr style={{ width: '90%' }} />
-
           <h3>예식비용</h3>
           <table>
             <tbody>
@@ -247,6 +250,29 @@ const EditMobile: React.FC<EditWideProps> = ({
                 </td>
                 <td>
                   {sumAdd.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+                </td>
+              </tr>
+
+              <tr>
+                <th>업체당일 추가</th>
+                <td>
+                  <input
+                    type="number"
+                    name="husbandToday"
+                    value={husbandToday}
+                    onChange={onChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    name="brideToday"
+                    value={brideToday}
+                    onChange={onChange}
+                  />
+                </td>
+                <td>
+                  {sumToday.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
                 </td>
               </tr>
 
@@ -465,9 +491,7 @@ const EditMobile: React.FC<EditWideProps> = ({
               </tr>
             </tbody>
           </table>
-
           <hr style={{ width: '90%' }} />
-
           <h3>식사비용</h3>
           <table>
             <tbody>
@@ -545,9 +569,7 @@ const EditMobile: React.FC<EditWideProps> = ({
               </tr>
             </tbody>
           </table>
-
           <hr style={{ width: '90%' }} />
-
           <h3>예약금</h3>
           <table>
             <tbody>
@@ -600,9 +622,7 @@ const EditMobile: React.FC<EditWideProps> = ({
               </tr>
             </tbody>
           </table>
-
           <hr style={{ width: '90%' }} />
-
           <h3>총 결제비용</h3>
           <table>
             <tbody>
@@ -654,7 +674,6 @@ const EditMobile: React.FC<EditWideProps> = ({
               </tr>
             </tbody>
           </table>
-
           <ButtonPane>
             <Button remove={true} onClick={onBack}>
               취소하기
@@ -703,7 +722,7 @@ const Container = styled.div`
 const Content = styled.div`
   margin-bottom: 2rem;
   text-align: center;
-  
+
   h3 {
     text-align: center;
   }

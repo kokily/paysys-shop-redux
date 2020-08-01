@@ -7,6 +7,7 @@ export type ExpenseType = {
   husbandRental: number;
   husbandCompany: number;
   husbandAdd: number;
+  husbandToday: number;
   husbandBouquet: number;
   husbandCeremony: number;
   husbandHanbok: number;
@@ -18,6 +19,7 @@ export type ExpenseType = {
   brideRental: number;
   brideCompany: number;
   brideAdd: number;
+  brideToday: number;
   brideBouquet: number;
   brideCeremony: number;
   brideHanbok: number;
@@ -29,6 +31,7 @@ export type ExpenseType = {
   sumRental: number;
   sumCompany: number;
   sumAdd: number;
+  sumToday: number;
   sumBouquet: number;
   sumCeremony: number;
   sumHanbok: number;
@@ -79,6 +82,7 @@ export const addExpense = ({
   husbandRental,
   husbandCompany,
   husbandAdd,
+  husbandToday,
   husbandBouquet,
   husbandCeremony,
   husbandHanbok,
@@ -90,6 +94,7 @@ export const addExpense = ({
   brideRental,
   brideCompany,
   brideAdd,
+  brideToday,
   brideBouquet,
   brideCeremony,
   brideHanbok,
@@ -101,6 +106,7 @@ export const addExpense = ({
   sumRental,
   sumCompany,
   sumAdd,
+  sumToday,
   sumBouquet,
   sumCeremony,
   sumHanbok,
@@ -135,6 +141,7 @@ export const addExpense = ({
     husbandRental,
     husbandCompany,
     husbandAdd,
+    husbandToday,
     husbandBouquet,
     husbandCeremony,
     husbandHanbok,
@@ -146,6 +153,7 @@ export const addExpense = ({
     brideRental,
     brideCompany,
     brideAdd,
+    brideToday,
     brideBouquet,
     brideCeremony,
     brideHanbok,
@@ -157,6 +165,7 @@ export const addExpense = ({
     sumRental,
     sumCompany,
     sumAdd,
+    sumToday,
     sumBouquet,
     sumCeremony,
     sumHanbok,
@@ -194,6 +203,7 @@ export const updateExpense = ({
   husbandRental,
   husbandCompany,
   husbandAdd,
+  husbandToday,
   husbandBouquet,
   husbandCeremony,
   husbandHanbok,
@@ -205,6 +215,7 @@ export const updateExpense = ({
   brideRental,
   brideCompany,
   brideAdd,
+  brideToday,
   brideBouquet,
   brideCeremony,
   brideHanbok,
@@ -216,6 +227,7 @@ export const updateExpense = ({
   sumRental,
   sumCompany,
   sumAdd,
+  sumToday,
   sumBouquet,
   sumCeremony,
   sumHanbok,
@@ -250,6 +262,7 @@ export const updateExpense = ({
     husbandRental,
     husbandCompany,
     husbandAdd,
+    husbandToday,
     husbandBouquet,
     husbandCeremony,
     husbandHanbok,
@@ -261,6 +274,7 @@ export const updateExpense = ({
     brideRental,
     brideCompany,
     brideAdd,
+    brideToday,
     brideBouquet,
     brideCeremony,
     brideHanbok,
@@ -272,6 +286,7 @@ export const updateExpense = ({
     sumRental,
     sumCompany,
     sumAdd,
+    sumToday,
     sumBouquet,
     sumCeremony,
     sumHanbok,

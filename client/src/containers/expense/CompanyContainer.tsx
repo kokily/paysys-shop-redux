@@ -8,6 +8,8 @@ interface StateProps {
   brideCompany: string;
   husbandAdd: string;
   brideAdd: string;
+  husbandToday: string;
+  brideToday: string;
 }
 
 function reducer(state: StateProps, action: any) {
@@ -24,8 +26,17 @@ const CompanyContainer = () => {
     brideCompany: '',
     husbandAdd: '',
     brideAdd: '',
+    husbandToday: '',
+    brideToday: '',
   });
-  const { husbandCompany, brideCompany, husbandAdd, brideAdd } = state;
+  const {
+    husbandCompany,
+    brideCompany,
+    husbandAdd,
+    brideAdd,
+    husbandToday,
+    brideToday,
+  } = state;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(e.target);
@@ -34,7 +45,16 @@ const CompanyContainer = () => {
   const onSubmit = () => {
     let newList: any = {};
 
-    if ([husbandCompany, brideCompany, husbandAdd, brideAdd].includes('')) {
+    if (
+      [
+        husbandCompany,
+        brideCompany,
+        husbandAdd,
+        brideAdd,
+        husbandToday,
+        brideToday,
+      ].includes('')
+    ) {
       alert('빈 칸을 다 채우세요!');
       return;
     }
@@ -52,6 +72,9 @@ const CompanyContainer = () => {
       husbandAdd,
       brideAdd,
       sumAdd: (parseInt(husbandAdd) + parseInt(brideAdd)).toString(),
+      husbandToday,
+      brideToday,
+      sumToday: (parseInt(husbandToday) + parseInt(brideToday)).toString(),
     };
 
     setCookie('__PAYSYS_WEDDING_CART__', JSON.stringify(newList), 10);
@@ -86,6 +109,8 @@ const CompanyContainer = () => {
       brideCompany={brideCompany}
       husbandAdd={husbandAdd}
       brideAdd={brideAdd}
+      husbandToday={husbandToday}
+      brideToday={brideToday}
       onChange={onChange}
       onSubmit={onSubmit}
       onBack={onBack}

@@ -106,6 +106,7 @@ const PlayContainer = () => {
         parseInt(newList.Rental.husbandRental) +
         parseInt(newList.Company.husbandCompany) +
         parseInt(newList.Company.husbandAdd) +
+        parseInt(newList.Company.husbandToday) +
         parseInt(newList.Bouquet.husbandBouquet) +
         parseInt(newList.Bouquet.husbandCeremony) +
         parseInt(newList.Bouquet.husbandHanbok) +
@@ -119,6 +120,7 @@ const PlayContainer = () => {
         parseInt(newList.Rental.brideRental) +
         parseInt(newList.Company.brideCompany) +
         parseInt(newList.Company.brideAdd) +
+        parseInt(newList.Company.brideToday) +
         parseInt(newList.Bouquet.brideBouquet) +
         parseInt(newList.Bouquet.brideCeremony) +
         parseInt(newList.Bouquet.brideHanbok) +
@@ -132,6 +134,7 @@ const PlayContainer = () => {
         parseInt(newList.Rental.husbandRental) +
         parseInt(newList.Company.husbandCompany) +
         parseInt(newList.Company.husbandAdd) +
+        parseInt(newList.Company.husbandToday) +
         parseInt(newList.Bouquet.husbandBouquet) +
         parseInt(newList.Bouquet.husbandCeremony) +
         parseInt(newList.Bouquet.husbandHanbok) +
@@ -143,6 +146,7 @@ const PlayContainer = () => {
         parseInt(newList.Rental.brideRental) +
         parseInt(newList.Company.brideCompany) +
         parseInt(newList.Company.brideAdd) +
+        parseInt(newList.Company.brideToday) +
         parseInt(newList.Bouquet.brideBouquet) +
         parseInt(newList.Bouquet.brideCeremony) +
         parseInt(newList.Bouquet.brideHanbok) +

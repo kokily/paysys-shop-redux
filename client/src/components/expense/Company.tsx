@@ -9,6 +9,8 @@ interface CompanyProps {
   brideCompany: string;
   husbandAdd: string;
   brideAdd: string;
+  husbandToday: string;
+  brideToday: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: () => void;
   onBack: () => void;
@@ -20,6 +22,8 @@ const Company: React.FC<CompanyProps> = ({
   brideCompany,
   husbandAdd,
   brideAdd,
+  husbandToday,
+  brideToday,
   onChange,
   onSubmit,
   onBack,
@@ -29,6 +33,8 @@ const Company: React.FC<CompanyProps> = ({
   const brideCompanyRef = useRef<HTMLInputElement>(null);
   const husbandAddRef = useRef<HTMLInputElement>(null);
   const brideAddRef = useRef<HTMLInputElement>(null);
+  const husbandTodayRef = useRef<HTMLInputElement>(null);
+  const brideTodayRef = useRef<HTMLInputElement>(null);
 
   const onBrideCompanyTarget = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -48,6 +54,20 @@ const Company: React.FC<CompanyProps> = ({
     if (e.key === 'Enter') {
       // @ts-ignore
       brideAddRef.current.focus();
+    }
+  };
+
+  const onHusbandTodayTarget = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      // @ts-ignore
+      husbandTodayRef.current.focus();
+    }
+  };
+
+  const onBrideTodayTarget = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      // @ts-ignore
+      brideTodayRef.current.focus();
     }
   };
 
@@ -138,6 +158,42 @@ const Company: React.FC<CompanyProps> = ({
                   value={brideAdd}
                   onChange={onChange}
                   ref={brideAddRef}
+                  onKeyPress={onHusbandTodayTarget}
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <th className="cyan">
+                웨딩업체 추가
+                <br />
+                (신랑)
+              </th>
+              <td>
+                <Input
+                  type="text"
+                  name="husbandToday"
+                  value={husbandToday}
+                  onChange={onChange}
+                  ref={husbandTodayRef}
+                  onKeyPress={onBrideTodayTarget}
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <th className="cyan">
+                웨딩업체 추가
+                <br />
+                (신부)
+              </th>
+              <td>
+                <Input
+                  type="text"
+                  name="brideToday"
+                  value={brideToday}
+                  onChange={onChange}
+                  ref={brideTodayRef}
                   onKeyPress={onKeyPress}
                   required
                 />
@@ -221,6 +277,9 @@ const Content = styled.div`
     color: white;
     &.orange {
       background: ${oc.orange[4]};
+    }
+    &.cyan {
+      background: ${oc.cyan[4]};
     }
   }
 `;

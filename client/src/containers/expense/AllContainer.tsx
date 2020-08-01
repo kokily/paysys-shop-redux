@@ -23,6 +23,9 @@ const AllContainer = () => {
     husbandAdd,
     brideAdd,
     sumAdd,
+    husbandToday,
+    brideToday,
+    sumToday,
     husbandBouquet,
     brideBouquet,
     sumBouquet,
@@ -78,6 +81,9 @@ const AllContainer = () => {
     husbandAdd: expense.husbandAdd,
     brideAdd: expense.brideAdd,
     sumAdd: expense.sumAdd,
+    husbandToday: expense.husbandToday,
+    brideToday: expense.brideToday,
+    sumToday: expense.sumToday,
     husbandBouquet: expense.husbandBouquet,
     brideBouquet: expense.brideBouquet,
     sumBouquet: expense.sumBouquet,
@@ -140,6 +146,9 @@ const AllContainer = () => {
           husbandAdd,
           brideAdd,
           sumAdd,
+          husbandToday,
+          brideToday,
+          sumToday,
           husbandBouquet,
           brideBouquet,
           sumBouquet,
@@ -253,6 +262,19 @@ const AllContainer = () => {
       changeField({ key: 'brideAdd', value: parseInt(newList.brideAdd) })
     );
     dispatch(changeField({ key: 'sumAdd', value: parseInt(newList.sumAdd) }));
+
+    dispatch(
+      changeField({
+        key: 'husbandToday',
+        value: parseInt(newList.husbandToday),
+      })
+    );
+    dispatch(
+      changeField({ key: 'brideToday', value: parseInt(newList.brideToday) })
+    );
+    dispatch(
+      changeField({ key: 'sumToday', value: parseInt(newList.sumToday) })
+    );
 
     dispatch(
       changeField({
@@ -447,6 +469,9 @@ const AllContainer = () => {
           husbandAdd={husbandAdd}
           brideAdd={brideAdd}
           sumAdd={sumAdd}
+          husbandToday={husbandToday}
+          brideToday={brideToday}
+          sumToday={sumToday}
           husbandBouquet={husbandBouquet}
           brideBouquet={brideBouquet}
           sumBouquet={sumBouquet}
@@ -507,6 +532,9 @@ const AllContainer = () => {
           husbandAdd={husbandAdd}
           brideAdd={brideAdd}
           sumAdd={sumAdd}
+          husbandToday={husbandToday}
+          brideToday={brideToday}
+          sumToday={sumToday}
           husbandBouquet={husbandBouquet}
           brideBouquet={brideBouquet}
           sumBouquet={sumBouquet}

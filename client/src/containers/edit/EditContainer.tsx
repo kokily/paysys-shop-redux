@@ -17,6 +17,7 @@ const EditContainer = () => {
     husbandRental,
     husbandCompany,
     husbandAdd,
+    husbandToday,
     husbandBouquet,
     husbandCeremony,
     husbandHanbok,
@@ -28,6 +29,7 @@ const EditContainer = () => {
     brideRental,
     brideCompany,
     brideAdd,
+    brideToday,
     brideBouquet,
     brideCeremony,
     brideHanbok,
@@ -39,6 +41,7 @@ const EditContainer = () => {
     sumRental,
     sumCompany,
     sumAdd,
+    sumToday,
     sumBouquet,
     sumCeremony,
     sumHanbok,
@@ -72,6 +75,7 @@ const EditContainer = () => {
     husbandRental: expense.husbandRental,
     husbandCompany: expense.husbandCompany,
     husbandAdd: expense.husbandAdd,
+    husbandToday: expense.husbandToday,
     husbandBouquet: expense.husbandBouquet,
     husbandCeremony: expense.husbandCeremony,
     husbandHanbok: expense.husbandHanbok,
@@ -83,6 +87,7 @@ const EditContainer = () => {
     brideRental: expense.brideRental,
     brideCompany: expense.brideCompany,
     brideAdd: expense.brideAdd,
+    brideToday: expense.brideToday,
     brideBouquet: expense.brideBouquet,
     brideCeremony: expense.brideCeremony,
     brideHanbok: expense.brideHanbok,
@@ -94,6 +99,7 @@ const EditContainer = () => {
     sumRental: expense.sumRental,
     sumCompany: expense.sumCompany,
     sumAdd: expense.sumAdd,
+    sumToday: expense.sumToday,
     sumBouquet: expense.sumBouquet,
     sumCeremony: expense.sumCeremony,
     sumHanbok: expense.sumHanbok,
@@ -175,6 +181,12 @@ const EditContainer = () => {
     );
     dispatch(
       changeField({
+        key: 'sumToday',
+        value: husbandToday + brideToday,
+      })
+    );
+    dispatch(
+      changeField({
         key: 'sumBouquet',
         value: husbandBouquet + brideBouquet,
       })
@@ -228,6 +240,7 @@ const EditContainer = () => {
           husbandRental +
           husbandCompany +
           husbandAdd +
+          husbandToday +
           husbandBouquet +
           husbandCeremony +
           husbandHanbok +
@@ -245,6 +258,7 @@ const EditContainer = () => {
           brideRental +
           brideCompany +
           brideAdd +
+          brideToday +
           brideBouquet +
           brideCeremony +
           brideHanbok +
@@ -262,6 +276,7 @@ const EditContainer = () => {
           husbandRental +
           husbandCompany +
           husbandAdd +
+          husbandToday +
           husbandBouquet +
           husbandCeremony +
           husbandHanbok +
@@ -273,6 +288,7 @@ const EditContainer = () => {
           brideRental +
           brideCompany +
           brideAdd +
+          brideToday +
           brideBouquet +
           brideCeremony +
           brideHanbok +
@@ -367,6 +383,7 @@ const EditContainer = () => {
           husbandRental,
           husbandCompany,
           husbandAdd,
+          husbandToday,
           husbandBouquet,
           husbandCeremony,
           husbandHanbok,
@@ -378,6 +395,7 @@ const EditContainer = () => {
           brideRental,
           brideCompany,
           brideAdd,
+          brideToday,
           brideBouquet,
           brideCeremony,
           brideHanbok,
@@ -389,6 +407,7 @@ const EditContainer = () => {
           sumRental,
           sumCompany,
           sumAdd,
+          sumToday,
           sumBouquet,
           sumCeremony,
           sumHanbok,
@@ -432,6 +451,7 @@ const EditContainer = () => {
           husbandRental={husbandRental}
           husbandCompany={husbandCompany}
           husbandAdd={husbandAdd}
+          husbandToday={husbandToday}
           husbandBouquet={husbandBouquet}
           husbandCeremony={husbandCeremony}
           husbandHanbok={husbandHanbok}
@@ -443,6 +463,7 @@ const EditContainer = () => {
           brideRental={brideRental}
           brideCompany={brideCompany}
           brideAdd={brideAdd}
+          brideToday={brideToday}
           brideBouquet={brideBouquet}
           brideCeremony={brideCeremony}
           brideHanbok={brideHanbok}
@@ -454,6 +475,7 @@ const EditContainer = () => {
           sumRental={sumRental}
           sumCompany={sumCompany}
           sumAdd={sumAdd}
+          sumToday={sumToday}
           sumBouquet={sumBouquet}
           sumCeremony={sumCeremony}
           sumHanbok={sumHanbok}
@@ -496,6 +518,7 @@ const EditContainer = () => {
           husbandRental={husbandRental}
           husbandCompany={husbandCompany}
           husbandAdd={husbandAdd}
+          husbandToday={husbandToday}
           husbandBouquet={husbandBouquet}
           husbandCeremony={husbandCeremony}
           husbandHanbok={husbandHanbok}
@@ -507,6 +530,7 @@ const EditContainer = () => {
           brideRental={brideRental}
           brideCompany={brideCompany}
           brideAdd={brideAdd}
+          brideToday={brideToday}
           brideBouquet={brideBouquet}
           brideCeremony={brideCeremony}
           brideHanbok={brideHanbok}
@@ -518,6 +542,7 @@ const EditContainer = () => {
           sumRental={sumRental}
           sumCompany={sumCompany}
           sumAdd={sumAdd}
+          sumToday={sumToday}
           sumBouquet={sumBouquet}
           sumCeremony={sumCeremony}
           sumHanbok={sumHanbok}

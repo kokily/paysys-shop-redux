@@ -146,6 +146,28 @@ const WeddingDetailMobile: React.FC<MobileProps> = ({
               </tr>
 
               <tr>
+                <th>업체당일 추가</th>
+                <td>
+                  {wedding.husbandToday
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
+                </td>
+                <td>
+                  {wedding.brideToday
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
+                </td>
+                <td>
+                  {wedding.sumToday
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
+                </td>
+              </tr>
+
+              <tr>
                 <th>부 케</th>
                 <td>
                   {wedding.husbandBouquet

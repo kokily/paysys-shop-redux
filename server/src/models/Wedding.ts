@@ -11,6 +11,7 @@ export interface WeddingType extends Document {
   husbandRental: number;
   husbandCompany: number;
   husbandAdd: number;
+  husbandToday: number;
   husbandBouquet: number;
   husbandCeremony: number;
   husbandHanbok: number;
@@ -22,6 +23,7 @@ export interface WeddingType extends Document {
   brideRental: number;
   brideCompany: number;
   brideAdd: number;
+  brideToday: number;
   brideBouquet: number;
   brideCeremony: number;
   brideHanbok: number;
@@ -33,6 +35,7 @@ export interface WeddingType extends Document {
   sumRental: number;
   sumCompany: number;
   sumAdd: number;
+  sumToday: number;
   sumBouquet: number;
   sumCeremony: number;
   sumHanbok: number;
@@ -74,6 +77,7 @@ const weddingSchema = new mongoose.Schema({
   husbandRental: Number,
   husbandCompany: Number,
   husbandAdd: Number,
+  husbandToday: Number,
   husbandBouquet: Number,
   husbandCeremony: Number,
   husbandHanbok: Number,
@@ -85,6 +89,7 @@ const weddingSchema = new mongoose.Schema({
   brideRental: Number,
   brideCompany: Number,
   brideAdd: Number,
+  brideToday: Number,
   brideBouquet: Number,
   brideCeremony: Number,
   brideHanbok: Number,
@@ -96,6 +101,7 @@ const weddingSchema = new mongoose.Schema({
   sumRental: Number,
   sumCompany: Number,
   sumAdd: Number,
+  sumToday: Number,
   sumBouquet: Number,
   sumCeremony: Number,
   sumHanbok: Number,

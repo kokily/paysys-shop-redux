@@ -197,21 +197,21 @@ const WeddingDetailWide: React.FC<WideProps> = ({
               </tr>
 
               <tr>
-                <th>부 케</th>
+                <th>업체당일 추가</th>
                 <td>
-                  {wedding.husbandBouquet
+                  {wedding.husbandToday
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                   원
                 </td>
                 <td>
-                  {wedding.brideBouquet
+                  {wedding.brideToday
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                   원
                 </td>
                 <td className="sub">
-                  {wedding.sumBouquet
+                  {wedding.sumToday
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                   원
@@ -232,6 +232,28 @@ const WeddingDetailWide: React.FC<WideProps> = ({
                 </td>
                 <td className="sub">
                   {wedding.totalMeals
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
+                </td>
+              </tr>
+
+              <tr>
+                <th>부 케</th>
+                <td>
+                  {wedding.husbandBouquet
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
+                </td>
+                <td>
+                  {wedding.brideBouquet
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
+                </td>
+                <td className="sub">
+                  {wedding.sumBouquet
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                   원
@@ -280,6 +302,8 @@ const WeddingDetailWide: React.FC<WideProps> = ({
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                   원
                 </td>
+
+                <th colSpan={4}>예약금</th>
               </tr>
 
               <tr>
@@ -303,7 +327,18 @@ const WeddingDetailWide: React.FC<WideProps> = ({
                   원
                 </td>
 
-                <th colSpan={4}>예약금</th>
+                <th>예약금 분할</th>
+                <td className="sub" colSpan={3} style={{ textAlign: 'center' }}>
+                  {(function () {
+                    if (wedding.reserve === 'half') {
+                      return '예약금 반반';
+                    } else if (wedding.reserve === 'husband') {
+                      return '예약금 신랑';
+                    } else if (wedding.reserve === 'bride') {
+                      return '예약금 신부';
+                    }
+                  })()}
+                </td>
               </tr>
 
               <tr>
@@ -327,17 +362,27 @@ const WeddingDetailWide: React.FC<WideProps> = ({
                   원
                 </td>
 
-                <th>예약금 분할</th>
-                <td className="sub" colSpan={3} style={{ textAlign: 'center' }}>
-                  {(function () {
-                    if (wedding.reserve === 'half') {
-                      return '예약금 반반';
-                    } else if (wedding.reserve === 'husband') {
-                      return '예약금 신랑';
-                    } else if (wedding.reserve === 'bride') {
-                      return '예약금 신부';
-                    }
-                  })()}
+                <th>예약금</th>
+                <td style={{ color: 'red' }}>
+                  -
+                  {wedding.husbandReserve
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
+                </td>
+                <td style={{ color: 'red' }}>
+                  -
+                  {wedding.brideReserve
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
+                </td>
+                <td className="sub" style={{ color: 'red' }}>
+                  -
+                  {wedding.reservePay
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                  원
                 </td>
               </tr>
 
@@ -357,29 +402,6 @@ const WeddingDetailWide: React.FC<WideProps> = ({
                 </td>
                 <td className="sub">
                   {wedding.sumModerator
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  원
-                </td>
-
-                <th>예약금</th>
-                <td style={{ color: 'red' }}>
-                  -
-                  {wedding.husbandReserve
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  원
-                </td>
-                <td style={{ color: 'red' }}>
-                  -
-                  {wedding.brideReserve
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                  원
-                </td>
-                <td className="sub" style={{ color: 'red' }}>
-                  -
-                  {wedding.reservePay
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                   원

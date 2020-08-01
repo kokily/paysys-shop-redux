@@ -15,6 +15,7 @@ export interface WeddingResponse {
   husbandRental: number;
   husbandCompany: number;
   husbandAdd: number;
+  husbandToday: number;
   husbandBouquet: number;
   husbandCeremony: number;
   husbandHanbok: number;
@@ -26,6 +27,7 @@ export interface WeddingResponse {
   brideRental: number;
   brideCompany: number;
   brideAdd: number;
+  brideToday: number;
   brideBouquet: number;
   brideCeremony: number;
   brideHanbok: number;
@@ -37,6 +39,7 @@ export interface WeddingResponse {
   sumRental: number;
   sumCompany: number;
   sumAdd: number;
+  sumToday: number;
   sumBouquet: number;
   sumCeremony: number;
   sumHanbok: number;

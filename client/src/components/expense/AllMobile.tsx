@@ -15,6 +15,9 @@ interface AllProps {
   husbandAdd: number;
   brideAdd: number;
   sumAdd: number;
+  husbandToday: number;
+  brideToday: number;
+  sumToday: number;
   husbandNum: number;
   brideNum: number;
   sumNum: number;
@@ -73,6 +76,9 @@ const AllMobile: React.FC<AllProps> = ({
   husbandAdd,
   brideAdd,
   sumAdd,
+  husbandToday,
+  brideToday,
+  sumToday,
   husbandNum,
   brideNum,
   sumNum,
@@ -188,6 +194,19 @@ const AllMobile: React.FC<AllProps> = ({
               </td>
               <td className="sub">
                 {sumAdd.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+            </tr>
+
+            <tr>
+              <th>업체당일 추가</th>
+              <td>
+                {husbandToday.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+              <td>
+                {brideToday.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+              <td className="sub">
+                {sumToday.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </td>
             </tr>
 

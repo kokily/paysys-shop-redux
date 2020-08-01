@@ -15,6 +15,9 @@ interface AllProps {
   husbandAdd: number;
   brideAdd: number;
   sumAdd: number;
+  husbandToday: number;
+  brideToday: number;
+  sumToday: number;
   husbandNum: number;
   brideNum: number;
   sumNum: number;
@@ -73,6 +76,9 @@ const AllWide: React.FC<AllProps> = ({
   husbandAdd,
   brideAdd,
   sumAdd,
+  husbandToday,
+  brideToday,
+  sumToday,
   husbandNum,
   brideNum,
   sumNum,
@@ -126,7 +132,9 @@ const AllWide: React.FC<AllProps> = ({
         신랑: <strong>{husband} ♡</strong> 신부: <strong>{bride}</strong>
       </h3>
 
-      <h4>웨딩일자: {new Date(weddingAt).toLocaleDateString()} {eventAt}</h4>
+      <h4>
+        웨딩일자: {new Date(weddingAt).toLocaleDateString()} {eventAt}
+      </h4>
 
       <hr style={{ width: '90%' }} />
 
@@ -232,6 +240,31 @@ const AllWide: React.FC<AllProps> = ({
             </tr>
 
             <tr>
+              <th>업체당일 추가</th>
+              <td>
+                {husbandToday.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                원
+              </td>
+              <td>
+                {brideToday.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+              <td className="sub">
+                {sumToday.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+
+              <th>식대 총 비용</th>
+              <td>
+                {husbandSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+              <td>
+                {brideSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+              <td className="sub">
+                {totalMeals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+            </tr>
+
+            <tr>
               <th>부 케</th>
               <td>
                 {husbandBouquet
@@ -245,17 +278,6 @@ const AllWide: React.FC<AllProps> = ({
               </td>
               <td className="sub">
                 {sumBouquet.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-              </td>
-
-              <th>식대 총 비용</th>
-              <td>
-                {husbandSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-              </td>
-              <td>
-                {brideSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-              </td>
-              <td className="sub">
-                {totalMeals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </td>
             </tr>
 
@@ -274,6 +296,8 @@ const AllWide: React.FC<AllProps> = ({
               <td className="sub">
                 {sumCeremony.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </td>
+
+              <th colSpan={4}>예약금</th>
             </tr>
 
             <tr>
@@ -287,21 +311,6 @@ const AllWide: React.FC<AllProps> = ({
               </td>
               <td className="sub">
                 {sumHanbok.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-              </td>
-
-              <th colSpan={4}>예약금</th>
-            </tr>
-
-            <tr>
-              <th>연 주</th>
-              <td>
-                {husbandPlay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-              </td>
-              <td>
-                {bridePlay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
-              </td>
-              <td className="sub">
-                {sumPlay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </td>
 
               <th>예약금 분할</th>
@@ -319,16 +328,15 @@ const AllWide: React.FC<AllProps> = ({
             </tr>
 
             <tr>
-              <th>축 가</th>
+              <th>연 주</th>
               <td>
-                {husbandAnthem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                원
+                {husbandPlay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </td>
               <td>
-                {brideAnthem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+                {bridePlay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </td>
               <td className="sub">
-                {sumAnthem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+                {sumPlay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </td>
 
               <th>예약금</th>
@@ -345,6 +353,20 @@ const AllWide: React.FC<AllProps> = ({
               </td>
               <td className="sub" style={{ color: 'red' }}>
                 -{reservePay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+            </tr>
+
+            <tr>
+              <th>축 가</th>
+              <td>
+                {husbandAnthem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                원
+              </td>
+              <td>
+                {brideAnthem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
+              </td>
+              <td className="sub">
+                {sumAnthem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
               </td>
             </tr>
 
