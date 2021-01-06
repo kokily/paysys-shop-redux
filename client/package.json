@@ -20,7 +20,7 @@
     "@types/redux-devtools-extension": "^2.13.2",
     "@types/redux-saga": "^0.10.5",
     "@types/styled-components": "^5.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "open-color": "^1.7.0",
     "qs": "^6.9.3",
     "react": "^16.13.1",
